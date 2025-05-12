@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ .Site.Title }}</title>
+	{{ block "style" . }} {{ end }}
+</head>
+<body>
+	<header>{{ block "header" . }} {{ end }}</header>
+	<main>  {{ block "main"   . }} {{ end }}</main>
+	<footer>{{ block "footer" . }} {{ end }}</footer>
+</body>
+</html>
+
+{{ define "header" }}
+<a href="/">{{ .Site.Title }}</a>
+<nav>{{ block "menu" . }} {{ end }}</nav>
+{{ end }}
+
+{{ define "footer" }}
+{{ .Site.Copyright }}
+{{ end }}
+
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ end }}
