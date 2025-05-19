@@ -8,13 +8,15 @@
 </head>
 <body>
 	<header>{{ block "header" . }} {{ end }}</header>
+	<hr>
 	<main>  {{ block "main"   . }} {{ end }}</main>
+	<hr>
 	<footer>{{ block "footer" . }} {{ end }}</footer>
 </body>
 </html>
 
 {{ define "header" }}
-<a href="/">{{ .Site.Title }}</a>
+<a class="title" href="/">{{ .Site.Title }}</a>
 <nav>{{ block "menu" . }} {{ end }}</nav>
 {{ end }}
 

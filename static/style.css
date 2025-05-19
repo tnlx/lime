@@ -1,7 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
-	font-family: "Inter", sans-serif;
-	max-width:720px;
-	margin:auto;
+	font-family:'Inter', sans-serif;
+	font-optical-sizing: auto;
+	line-height:1.6;
+	max-width:720px;/*narrow column makes reading more comfortable*/
+	margin:5vw auto;
+	padding: 0 1em;
+	color: rgb(42, 42, 42);
+}
+
+/* ------------------------------------
+* hyperlinks
+* ---------------------------------- */
+
+a {
+	color: inherit;
+	text-decoration-color: #e3e3e3;
+	text-decoration-thickness: 3px;
+	text-underline-offset: 2px;
+	text-decoration-skip-ink: none;
+}
+
+a:hover{
+	text-decoration-color: lime;
+}
+/* --------------------------------- */
+
+hr {
+	background:#eee;
+	margin-block: 2rem;
+	height:1px;
+	border: none;
+}
+
+/* ------------------------------------
+* header
+* ---------------------------------- */
+
+header {
+	text-align:center;
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+}
+header a {
+	text-decoration-line: none;
+}
+header a:hover {
+	text-decoration-line: underline;
+}
+header a.title {
+	font-size: 1.8em;
+	font-weight: bold;
+}
+header nav {
+	color: gray;
+	font-size: .9em;
+}
+header nav ul {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+header nav ul li {
+	list-style-type:none;
+}
+
+/* ------------------------------------
+* main
+* ---------------------------------- */
+
+main {
+	margin-block-end: 80px;/*make a considerable gap between it and footer*/
+}
+
+/* ------------------------------------
+* footer
+* ---------------------------------- */
+
+footer {
+	color: gray;
+	font-size: .9em;
 }
