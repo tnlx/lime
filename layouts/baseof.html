@@ -27,3 +27,11 @@
 {{ .Content }}
 {{ block "pagenav" . }} {{ end }}
 {{ end }}
+
+{{ define "menu" }}
+<ul>
+	{{ range .Site.Menus.main }}
+	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}

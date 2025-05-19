@@ -1,2 +1,9 @@
 {{ define "pagenav" }}
+<ul>
+	{{ range .Pages }}
+	<li>
+		<a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
+	</li>
+	{{ end }}
+</ul>
 {{ end }}
