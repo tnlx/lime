@@ -21,6 +21,7 @@
 {{ end }}
 
 {{ define "footer" }}
+{{ block "socials" . }} {{ end }}
 {{ .Site.Copyright }}
 {{ end }}
 
@@ -34,6 +35,14 @@
 <ul>
 	{{ range .Site.Menus.main }}
 	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}
+
+{{ define "socials" }}
+<ul>
+	{{ range site.Params.socials }}
+	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
 	{{ end }}
 </ul>
 {{ end }}

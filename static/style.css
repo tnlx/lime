@@ -7,7 +7,7 @@ body {
 	max-width:720px;/*narrow column makes reading more comfortable*/
 	margin:5vw auto;
 	padding: 0 1em;
-	color: rgb(42, 42, 42);
+	color: rgb(72, 72, 72);
 }
 
 /* ------------------------------------
@@ -23,6 +23,7 @@ a {
 }
 
 a:hover{
+	color: black;
 	text-decoration-color: lime;
 }
 /* --------------------------------- */
@@ -85,4 +86,18 @@ main {
 footer {
 	color: gray;
 	font-size: .9em;
+}
+footer ul {
+	margin: 0;
+	padding: 0;
+	font-size: .9em;
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+footer ul li {
+	list-style-type:none;
+}
+footer a:not(:hover) {
+	text-decoration-line: none;
 }
