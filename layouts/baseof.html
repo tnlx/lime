@@ -32,7 +32,7 @@
 {{ end }}
 
 {{ define "menu" }}
-<ul>
+<ul class="nav">
 	{{ range .Site.Menus.main }}
 	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
 	{{ end }}
@@ -40,7 +40,7 @@
 {{ end }}
 
 {{ define "socials" }}
-<ul>
+<ul class="nav">
 	{{ range site.Params.socials }}
 	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
 	{{ end }}

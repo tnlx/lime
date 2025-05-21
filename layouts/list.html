@@ -1,9 +1,9 @@
 {{ define "pagenav" }}
-<ul>
+<ol class="nav">
 	{{ range .Pages }}
 	<li>
 		<a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
 	</li>
 	{{ end }}
-</ul>
+</ol>
 {{ end }}
