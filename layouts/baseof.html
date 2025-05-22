@@ -17,12 +17,17 @@
 
 {{ define "header" }}
 <a class="title" href="/">{{ .Site.Title }}</a>
-<nav>{{ block "menu" . }} {{ end }}</nav>
+<nav>{{ block "menu" site.Menus.main }} {{ end }}</nav>
 {{ end }}
 
 {{ define "footer" }}
-{{ block "socials" . }} {{ end }}
+<div>
+{{ block "socials" site.Params.socials }} {{ end }}
 {{ .Site.Copyright }}
+</div>
+<div>
+{{ block "links" site.Params.links }} {{ end }}
+</div>
 {{ end }}
 
 {{ define "main" }}
@@ -33,7 +38,7 @@
 
 {{ define "menu" }}
 <ul class="nav">
-	{{ range .Site.Menus.main }}
+	{{ range . }}
 	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
 	{{ end }}
 </ul>
@@ -41,8 +46,18 @@
 
 {{ define "socials" }}
 <ul class="nav">
-	{{ range site.Params.socials }}
+	{{ range . }}
 	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
 	{{ end }}
 </ul>
+{{ end }}
+
+{{ define "links" }}
+{{ with . }}
+<ul class=nav>
+	{{ range . }}
+	<li><a href="{{ .url }}">{{ .label }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}
 {{ end }}

@@ -81,6 +81,9 @@ main {
 footer {
 	color: gray;
 	font-size: .9em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 footer .nav {
 	font-size: .9em;
