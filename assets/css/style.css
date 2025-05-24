@@ -56,7 +56,6 @@ header a.title {
 	font-weight: bold;
 }
 header nav {
-	color: gray;
 	font-size: .9em;
 }
 header .nav {
@@ -79,7 +78,6 @@ main {
 * ---------------------------------- */
 
 footer {
-	color: gray;
 	font-size: .9em;
 	display: flex;
 	flex-direction: row;
@@ -121,6 +119,5 @@ ol.nav li {
 	list-style: nav-entry;
 }
 ol.nav li::marker {
-	color: gray;
 	font-family: monospace;
 }
