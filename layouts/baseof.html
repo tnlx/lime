@@ -9,58 +9,50 @@
 </head>
 <body>
 	<header>{{ block "header" . }} {{ end }}</header>
-	<hr>
 	<main>  {{ block "main"   . }} {{ end }}</main>
-	<hr>
 	<footer>{{ block "footer" . }} {{ end }}</footer>
 </body>
 </html>
 
 {{ define "header" }}
-<a class="title" href="/">{{ .Site.Title }}</a>
+<div class="inheader">
+<a class="sitetitle" href="/">{{ .Site.Title }}</a>
 <nav>{{ block "menu" site.Menus.main }} {{ end }}</nav>
+</div>
 {{ end }}
 
 {{ define "footer" }}
+<ul class="contact">
+	{{ range site.Params.socials }}
+	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
+	{{ end }}
+	{{ range site.Params.links }}
+	<li><a href="{{ .url }}">{{ .label }}</a></li>
+	{{ end }}
+</ul>
 <div>
-{{ block "socials" site.Params.socials }} {{ end }}
 {{ .Site.Copyright }}
-</div>
-<div>
-{{ block "links" site.Params.links }} {{ end }}
 </div>
 {{ end }}
 
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<article class="article">
+<h1 class="heading">{{ .Title }}</h1>
+<aside>
+	{{ block "toc" . }} {{ end }}
+</aside>
+<div class="content">
 {{ .Content }}
-{{ block "pagenav" . }} {{ end }}
+</div>
+</article>
 {{ end }}
 
 {{ define "menu" }}
-<ul class="nav">
+<ul class="menu">
 	{{ range . }}
 	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
 	{{ end }}
 </ul>
-{{ end }}
-
-{{ define "socials" }}
-<ul class="nav">
-	{{ range . }}
-	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
-	{{ end }}
-</ul>
-{{ end }}
-
-{{ define "links" }}
-{{ with . }}
-<ul class=nav>
-	{{ range . }}
-	<li><a href="{{ .url }}">{{ .label }}</a></li>
-	{{ end }}
-</ul>
-{{ end }}
 {{ end }}
 
 {{ define "style" }}
@@ -68,7 +60,7 @@
 {{/*for fater resources deliveries*/}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 {{ with ( resources.Get "css/style.css" ) }}
 {{ if hugo.IsDevelopment }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">

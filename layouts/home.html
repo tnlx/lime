@@ -1,15 +1,2 @@
 {{ define "pagenav" }}
-{{ with .Sections }}
-<hr>
-{{ range . }}
-<h2>{{ .Name }}</h2>
-<ol class="nav">
-	{{ range .Pages }}
-	<li>
-		<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-	</li>
-	{{ end }}
-</ol>
-{{ end }}
-{{ end }}
 {{ end }}

@@ -1,9 +1,18 @@
 {{ define "pagenav" }}
-<ol class="nav">
+<ul class="pagenav">
 	{{ range .Pages }}
-	<li>
-		<a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+	<li class=pagenavitem>
+		<a class="pagenavtitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
 	</li>
 	{{ end }}
-</ol>
+</ul>
+{{ end }}
+
+{{ define "main" }}
+<div class="article">
+<h1 class="heading">{{ .Title }}</h1>
+<div class="content">
+{{ block "pagenav" . }} {{ end }}
+</div>
+</article>
 {{ end }}
