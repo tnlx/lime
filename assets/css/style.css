@@ -6,12 +6,12 @@
 @property --pen-regular {
   syntax: "<color>";
   inherits: true;
-  initial-value: black;
+  initial-value: rgb(64, 64, 64);
 }
 @property --pen-href {
   syntax: "<color>";
   inherits: true;
-  initial-value: #009d00;
+  initial-value: rgb(202, 246, 125);
 }
 
 /* ------------------------------------
@@ -28,7 +28,7 @@ header {
 
 main {
 	margin: auto;
-	margin-block: 40px;
+	margin-block: 100px;
 }
 
 footer {
@@ -47,17 +47,11 @@ footer {
 
 .inheader {
 	min-height: 70px;
-	max-width: 840px;
 	display: flex;
 	column-gap: 1em;
 	align-items: center;
 	margin: auto;
 	flex-wrap: wrap;
-}
-.sitetitle {
-	font-size: 1.5em;
-	text-wrap: nowrap;
-	height: fit-content;
 }
 .menu {
 	display: inline-flex;
@@ -76,11 +70,11 @@ footer {
 	font-size: .9em;
 }
 footer .contact {
-	list-style: none;
-	padding: 0;
-	gap: 8px;
-	display: inline-flex;
-	margin-block: .1em;
+	padding-inline: 0;
+}
+footer .contact li {
+	display: inline;
+	margin: 0 5px 0 0;
 }
 
 /* ------------------------------------
@@ -93,13 +87,13 @@ footer .contact {
 	margin-block: 0 .67em;
 }
 .content {
-	line-height: 1.6;
+	line-height: 1.7;
 }
 @media only screen and (min-width: 840px) {
 	.article {
 		display: grid;
 		grid-template-areas: "h h" "c s";
-		grid-template-columns: 600px 240px;
+		grid-template-columns: 600px 1fr;
 		column-gap: 40px;
 	}
 	.heading {
@@ -109,9 +103,15 @@ footer .contact {
 		grid-area: c;
 	}
 	aside {
+		display: block;
 		grid-area: s;
 	}
+	.toc {
+		position: sticky;
+		top: 50px;
+	}
 }
+
 .toclabel{
 	font-size: unset;
 	margin-block: .67em;
@@ -122,6 +122,9 @@ footer .contact {
 	padding-inline: 20px;
 	margin-block: 4px;
 	font-size: .9em;
+}
+.toc ul li {
+	margin-block: 4px;
 }
 .toc nav>ul {
 	padding-inline: 0;
@@ -154,38 +157,25 @@ img {
 }
 /* Hyperlink */
 a {
+	color: inherit;
 	text-underline-offset: 2px;
+	text-decoration-thickness: 4px;
+	text-decoration-color: var(--pen-href);
+	text-decoration-skip-ink: none;
 }
-a:hover {
-	color: var(--pen-href);
-}
-a:focus {
+a:focus,a:hover,a:active {
+	color: black;
 	text-decoration: none;
+	background: var(--pen-href);
 }
 .content a {
 	font-weight: 600;
-	color: var(--pen-href);
 }
-.toc a{
+header a,footer a,.toc a{
 	color: inherit;
 	text-decoration: none;
-	&:hover{
-		color: var(--pen-href);
-	}
 }
-header a,footer a{
-	color: inherit;
-	text-decoration: none;
-	&:hover{
-		text-decoration-line: underline;
-	}
-}
-.sitetitle {
-	color: var(--pen-href);
-	&:hover {
-		text-decoration: none;
-	}
-}
+
 /* Codeblock */
 pre {
 	padding: .5em;
@@ -197,4 +187,28 @@ pre {
 pre code {
 	font-weight: bold;
 	font-size: .8em;
+}
+h2 {
+	margin-block: 2em .67em;
+}
+p {
+	margin-bottom: 1.7em;
+}
+
+/* ------------------------------------
+* callouts
+* ---------------------------------- */
+
+.callout {
+	padding: 32px;
+	background: rgb(245, 255, 241);
+	border: 2px solid #8cce5f;
+}
+.callout>ul{
+	padding-inline: 20px;
+}
+.callout-heading {
+	margin-block: 0;
+	font-size: 1.2em;
+	font-weight: bold;
 }
