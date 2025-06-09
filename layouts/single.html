@@ -1,4 +1,18 @@
 {{ define "pagenav" }}
+<aside class="prevnext">
+	<div class=prev>
+		{{ with .PrevInSection }}
+		<p class=prevnextlabel>Previous</p>
+		<a href="{{.Permalink}}">{{.Title}}</a>
+		{{ end }}
+	</div>
+	<div class=next>
+		{{ with .NextInSection }}
+		<p class=prevnextlabel>Next</p>
+		<a href="{{.Permalink}}">{{.Title}}</a>
+		{{ end }}
+	</div>
+</aside>
 {{ end }}
 
 {{ define "toc" }}

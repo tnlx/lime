@@ -38,12 +38,13 @@
 {{ define "main" }}
 <article class="article">
 <h1 class="heading">{{ .Title }}</h1>
-<aside>
+<aside class="articleside">
 	{{ block "toc" . }} {{ end }}
 </aside>
 <div class="content">
 {{ .Content }}
 </div>
+{{ block "pagenav" . }} {{ end }}
 </article>
 {{ end }}
 
