@@ -15,24 +15,11 @@
 </html>
 
 {{ define "header" }}
-<div class="inheader">
-<a href="/">Home</a>
 <nav>{{ block "menu" site.Menus.main }} {{ end }}</nav>
-</div>
 {{ end }}
 
 {{ define "footer" }}
-<ul class="contact">
-	{{ range site.Params.socials }}
-	<li><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
-	{{ end }}
-	{{ range site.Params.links }}
-	<li><a href="{{ .url }}">{{ .label }}</a></li>
-	{{ end }}
-</ul>
-<div>
 {{ .Site.Copyright }}
-</div>
 {{ end }}
 
 {{ define "main" }}
@@ -50,6 +37,7 @@
 
 {{ define "menu" }}
 <ul class="menu">
+	<li class="homeref"><a href="/">{{ site.Title }}</a></li>
 	{{ range . }}
 	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
 	{{ end }}
