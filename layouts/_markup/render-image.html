@@ -1,0 +1,9 @@
+{{ $url := "" }}
+{{ with .Page.Resources.GetMatch .Destination }}
+{{/*Normalize internal URL*/}}
+{{/*This helps render page bundle's images on section index */}}
+{{ $url = .RelPermalink }}
+{{ else }}
+{{ $url = .Destination | safeURL }}
+{{ end }}
+<img src="{{- $url -}}" alt="{{- .Text -}}" {{ with .Title }}title="{{- . -}}"{{ end }}/>
