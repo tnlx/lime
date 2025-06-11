@@ -16,8 +16,14 @@
 {{ end }}
 
 {{ define "toc" }}
+{{/* Renders the table of contents if it is not empty */}}
+{{ $noToc := "<nav id=\"TableOfContents\"></nav>" }}
+{{ with .TableOfContents }}
+{{ if ne . $noToc }}
 <div class="toc">
-	<h2 class="toclabel">Table of Contents</h2>
-	{{ .TableOfContents }}
+    <h2 class="toclabel">Table of Contents</h2>
+    {{ . }}
 </div>
+{{ end }}
+{{ end }}
 {{ end }}
