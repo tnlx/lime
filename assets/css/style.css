@@ -40,8 +40,8 @@ body {
 header {
 	position: sticky;
 	top: 0;
-	padding: 4px;
 	z-index:1;
+	background: white;
 }
 
 main {
@@ -52,11 +52,6 @@ footer {
 	margin: auto;
 }
 
-@media only screen and (max-width: 780px) {
-	header {
-		background: white;
-	}
-}
 @media only screen and (min-width: 780px) {
 	main,footer {
 		max-width: 780px;
@@ -66,15 +61,6 @@ footer {
 /* ------------------------------------
 * Within header
 * ---------------------------------- */
-
-.menu {
-	display: inline-flex;
-	list-style: none;
-	padding-inline-start: 0;
-	gap: 1em;
-	flex-wrap: wrap;
-	margin-block: 0;
-}
 
 /* ------------------------------------
 * Within footer
@@ -137,52 +123,68 @@ footer {
 	padding-inline: 0;
 }
 
-/* Section navigation */
-.pagenav {
+/* Cardboard (Home/Section navigation) */
+.cardboard {
 	list-style: none;
 	padding-inline: 0;
 	display: grid;
 	grid-template-columns: auto;
 	gap: 8px;
-	@media only screen and (min-width: 320px) {
-		grid-template-columns: repeat(2,1fr);
+	@media only screen and (min-width: 375px) {
+		grid-template-columns: repeat(2,auto);
 	}
-	@media only screen and (min-width: 800px) {
+	@media only screen and (min-width:700px) {
 		grid-template-columns: repeat(3,1fr);
 	}
 }
-.pagenavitem {
+.card {
 	border: 3px dotted var(--marker-pink);
 	padding: 12px;
 	line-height: 1;
-	display: flex;
-	flex-direction: column;
 	min-height: 150px;
-	justify-content: space-between;
 }
-.pagenavitem p {
-	margin-block: 0 .3em;
-}
-.pagenavitem a{
+.card a {
 	text-decoration: none;
+	font-weight: 600;
 }
-.pagenavitem img {
-	float: left;
-	max-width: 100px;
-	margin-right: 12px;
-}
-.pagenavtitle {
+.cardtitle {
 	margin: .67em 0;
 	font-size: 1.3em;
 	font-weight: bold;
 	text-decoration: none;
 	line-height: 1;
 }
-.pagenavdesc {
+.carddesc {
 	font-size: .9em;
 	color: #555;
 	line-height: 1.2;
 }
+.carddesc p {
+	margin-block: 0 .3em;
+}
+.carddesc img {
+	float: left;
+	max-width: 100px;
+	margin-right: 12px;
+}
+.card.profile {
+	border-style: solid;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.contacts {
+	font-size: 13px;
+	display: inline-flex;
+	list-style: none;
+	padding-inline: 0;
+	flex-wrap: wrap;
+}
+.contact {
+	display:inline;
+	margin-right:5px;
+}
+
 /* ------------------------------------
 * General elements
 * ---------------------------------- */
@@ -240,15 +242,14 @@ code {
 p>code {
 	background-color: var(--marker-pink);
 }
+
 /* ------------------------------------
 * callouts
 * ---------------------------------- */
-
 .callout {
 	padding: 1em;
-	background: rgb(245, 255, 241);
-	border: 2px solid #8cce5f;
-	text-align: justify;
+	font-size: .9em;
+	background: #f5f5f5;
 }
 .callout>ul{
 	padding-inline: 20px;
@@ -259,10 +260,8 @@ p>code {
 }
 .callout-heading {
 	margin-block: 0;
-	font-size: 1.1em;
 	font-weight: bold;
 }
-
 /* ------------------------------------
 * article prev/next
 * ---------------------------------- */

@@ -1,18 +1,11 @@
-{{ define "pagenav" }}
-<ul class="pagenav">
+{{ define "main" }}
+<ul class="cardboard">
 	{{ range .Pages }}
-	<li class=pagenavitem>
-		<a class="pagenavtitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
+	<li class=card>
+		<div>
+		<a class=cardtitle href="{{ .RelPermalink }}">{{ .Title }}</a>
+		</div>
 	</li>
 	{{ end }}
 </ul>
-{{ end }}
-
-{{ define "main" }}
-<div>
-<h1 class="heading">{{ .Title }}</h1>
-<div class="content">
-{{ block "pagenav" . }} {{ end }}
-</div>
-</article>
 {{ end }}

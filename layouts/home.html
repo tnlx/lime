@@ -1,47 +1,41 @@
 {{ define "main" }}
-<div>
-	<div class="content">
-		<ul class="pagenav">
-			{{ with site.Params.profile }}
-			<li class=pagenavitem style="border-style: solid;">
-				{{ block "profile" . }} {{ end }}
-			</li>
-			{{ end }}
+<ul class="cardboard">
+	{{ with site.Params.profile }}
+	<li class="card profile">
+		{{ block "profile" . }} {{ end }}
+	</li>
+	{{ end }}
 
-			{{ range .RegularPagesRecursive }}
-			<li class=pagenavitem>
-				<div>
-					<a class="pagenavtitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
-					{{ if (lt .WordCount 50)}}
-					<div class="pagenavdesc">{{ .Content }}</div>
-					{{ else }}
-					<div class="pagenavdesc">{{ .Description }}</div>
-					{{ end }}
-				</div>
-			</li>
+	{{ range .RegularPagesRecursive }}
+	<li class=card>
+		<div>
+			<a class="cardtitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
+			{{ if (lt .WordCount 50)}}
+			<div class="carddesc">{{ .Content }}</div>
+			{{ else }}
+			<div class="carddesc">{{ .Description }}</div>
 			{{ end }}
-		</ul>
-	</div>
-</div>
+		</div>
+	</li>
+	{{ end }}
+</ul>
 {{ end }}
 
 {{ define "profile" }}
-<div>
-	<img src="{{ .Picture }}" width="80px">
-	<div>
-		<p class="pagenavdesc">{{ .Intro | markdownify }}</p>
-		<ul style="list-style: none;padding-inline: 0;margin-block: 0;font-size: 13px;">
-			{{ range .inbox }}
-			<li style="display:inline;margin-right:2px"><a href="{{ .url }}">{{ .label }}</a></li>
-			{{ end }}
-		</ul>
-	</div>
+<div class="carddesc">
+	<img src="{{- .Picture -}}" width="80px">
+	<p>{{- .Intro | markdownify -}}</p>
 </div>
-<div>
-	<ul style="list-style: none;padding-inline: 0;margin-block: 0;font-size: 13px;">
-		{{ range .socials }}
-		<li style="display:inline;margin-right:2px"><a href="https://{{ .url }}" rel="me">{{ .label }}</a></li>
-		{{ end }}
+<div class="carddesc">
+	<ul class="contacts">
+		{{- range .inbox -}}
+		<li class="contact"><a href="{{- .url -}}">{{- .label -}}</a></li>
+		{{- end -}}
+	</ul>
+	<ul class="contacts">
+		{{- range .socials -}}
+		<li class="contact"><a href="https://{{- .url -}}" rel="me">{{- .label -}}</a></li>
+		{{- end -}}
 	</ul>
 </div>
 {{ end }}

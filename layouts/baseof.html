@@ -15,7 +15,7 @@
 </html>
 
 {{ define "header" }}
-<nav>{{ block "menu" site.Menus.main }} {{ end }}</nav>
+<a class="homeref" href="/">{{ site.Title }}</a></div>
 {{ end }}
 
 {{ define "footer" }}
@@ -33,15 +33,6 @@
 </div>
 {{ block "pagenav" . }} {{ end }}
 </article>
-{{ end }}
-
-{{ define "menu" }}
-<ul class="menu">
-	<li class="homeref"><a href="/">{{ site.Title }}</a></li>
-	{{ range . }}
-	<li><a href="{{ .URL }}">{{ .Name }}</a></li>
-	{{ end }}
-</ul>
 {{ end }}
 
 {{ define "style" }}
