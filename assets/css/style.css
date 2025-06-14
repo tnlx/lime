@@ -32,6 +32,10 @@
 /* ------------------------------------
 * Page-wise
 * ---------------------------------- */
+html {
+	scroll-padding-top: 50px;
+}
+
 body {
 	color: var(--pen-regular);
 	margin: 0;
@@ -87,7 +91,7 @@ footer {
 		display: grid;
 		column-gap: 40px;
 		grid-template-areas: "h h" "c s";
-		grid-template-columns: 540px 240px;
+		grid-template-columns: auto 220px;
 	}
 	.heading {
 		grid-area: h;
@@ -184,7 +188,10 @@ footer {
 	display:inline;
 	margin-right:5px;
 }
-
+.more:after {
+	content: '\00BB';
+	margin-left: 4px;
+}
 /* ------------------------------------
 * General elements
 * ---------------------------------- */
@@ -236,7 +243,7 @@ pre {
 	border: 2px solid #e3e3e3;
 }
 code {
-	font-size: 13px;
+	font-size: .9em;
 	color: black;
 }
 p>code {

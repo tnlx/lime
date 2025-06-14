@@ -3,7 +3,7 @@
     {{ with .AlertTitle }}
     {{ . }}
     {{ else }}
-    {{ ( or (i18n .AlertType) (title .AlertType) ) | upper }}
+    {{ ( or (i18n .AlertType) (title .AlertType) ) }}
     {{ end }}
   </p>
   {{ .Text }}
