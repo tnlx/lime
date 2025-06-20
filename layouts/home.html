@@ -37,7 +37,14 @@
 	</ul>
 	<ul class="contacts">
 		{{- range .socials -}}
-		<li class="contact"><a href="https://{{- .url -}}" rel="me">{{- .label -}}</a></li>
+		<li class="contact"><a class="icon" href="https://{{- .url -}}" rel="me">
+		{{ $icon := ( printf "icons/%s.svg" ( .label | lower ) ) }}
+		{{ with resources.Get $icon }}
+		{{ .Content | safeHTML }}
+		{{ else }}
+		{{- .label -}}
+		{{ end }}
+		</a></li>
 		{{- end -}}
 	</ul>
 </div>
