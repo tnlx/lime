@@ -186,6 +186,7 @@ footer {
 }
 .contact {
 	display:inline;
+	margin-right: 4px;
 }
 .more:after {
 	content: '\00BB';
