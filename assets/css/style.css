@@ -28,38 +28,34 @@
   inherits: true;
   initial-value: rgb(99, 204, 255);
 }
+@property --pen-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(15, 0, 208);
+}
 
 /* ------------------------------------
 * Page-wise
 * ---------------------------------- */
+* {
+	box-sizing: border-box;
+}
 html {
 	scroll-padding-top: 50px;
 }
 
 body {
 	color: var(--pen-regular);
-	margin: 0;
-}
-
-header {
-	position: sticky;
-	top: 0;
-	z-index:1;
-	background: white;
-}
-
-main {
-	margin: 50px auto 20px;
-}
-
-footer {
+	padding-top: 20px;
+	width: fit-content;
 	margin: auto;
 }
 
-@media only screen and (min-width: 780px) {
-	main,footer {
-		max-width: 780px;
-	}
+main {
+	margin-block: 40px;
+}
+.cardboard {
+	max-width: 780px;
 }
 
 /* ------------------------------------
@@ -72,28 +68,41 @@ footer {
 
 footer {
 	font-size: .9em;
+	margin-bottom: 20px;
 }
 
 /* ------------------------------------
 * Within main
 * ---------------------------------- */
-
-.heading {
+body {
+	background: #fafafa;
+}
+.articleheading>.heading {
 	font-weight: bold;
-	font-size: 3em;
+	font-size: 4rem;
+	letter-spacing: -.04em;
+	word-spacing: 2px;
+	line-height: 1.1;
 	margin-block: 0 .67em;
 }
 .content {
 	line-height: 1.6;
+	background: white;
 }
 @media only screen and (min-width: 780px) {
+	.content {
+		max-width: 540px;
+		padding: 4px 20px;
+		outline: 1px dotted #555;
+	}
 	.article {
+		max-width: 800px;
 		display: grid;
 		column-gap: 40px;
 		grid-template-areas: "h h" "c s";
 		grid-template-columns: auto 220px;
 	}
-	.heading {
+	.articleheading {
 		grid-area: h;
 	}
 	.content {
@@ -103,16 +112,17 @@ footer {
 		display: block;
 		grid-area: s;
 	}
-	.toc {
+	.sticky {
 		position: sticky;
-		top: 50px;
+		top: 20px;
 	}
 }
 
-.toclabel{
+.toc .heading{
 	font-size: unset;
 	margin-block: .67em;
 	border-bottom: 1px solid #eee;
+	font-weight: 600;
 }
 .toc ul {
 	list-style: none;
@@ -125,6 +135,9 @@ footer {
 }
 .toc nav>ul {
 	padding-inline: 0;
+}
+h2,h3,h4,h5,h6 {
+	font-weight: 600;
 }
 
 /* Cardboard (Home/Section navigation) */
@@ -142,21 +155,22 @@ footer {
 	}
 }
 .card {
-	border: 3px dotted var(--marker-pink);
+	border: 1px dotted #555;
+	background: white;
 	padding: 12px;
-	line-height: 1;
 	min-height: 150px;
 }
 .card a {
 	text-decoration: none;
 	font-weight: 600;
+	color: inherit;
 }
-.cardtitle {
-	margin: .67em 0;
+.card .heading {
+	margin: 0 0 4px;
 	font-size: 1.3em;
+	line-height: 1.1;
 	font-weight: bold;
 	text-decoration: none;
-	line-height: 1;
 }
 .carddesc {
 	font-size: .9em;
@@ -195,6 +209,9 @@ footer {
 /* ------------------------------------
 * General elements
 * ---------------------------------- */
+.homeref {
+	text-decoration: none;
+}
 em {
 	background-color: var(--marker-orange);
 	color: black;
@@ -216,10 +233,9 @@ p {
 }
 /* Hyperlink */
 a {
-	color: inherit;
+	color: var(--pen-blue);
 	text-underline-offset: 2px;
-	text-decoration-thickness: 4px;
-	text-decoration-color: var(--marker-green);
+	text-decoration-thickness: 2px;
 	text-decoration-skip-ink: none;
 }
 a:focus,a:hover,a:active {
@@ -227,10 +243,7 @@ a:focus,a:hover,a:active {
 	text-decoration: none;
 	background: var(--marker-green);
 }
-.content a {
-	font-weight: 600;
-}
-header a,footer a,.toc a{
+.toc a{
 	color: inherit;
 	text-decoration: none;
 }
@@ -242,15 +255,15 @@ a.icon {
 /* Codeblock */
 pre {
 	padding: 12px;
-	overflow: scroll;
-	background: #f7f7f7;
-	border: 2px solid #e3e3e3;
+	overflow: auto;
+	background: #eee;
+	width: 100%;
 }
 code {
 	color: black;
 }
 p>code {
-	background-color: var(--marker-pink);
+	background-color: #f7f7f7;
 }
 
 /* ------------------------------------
@@ -280,7 +293,7 @@ p>code {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 100px 0 0 0;
+	margin: 20px 0 0 0;
 	font-size: .9em;
 	gap: 1em;
 }
@@ -297,4 +310,18 @@ p>code {
 }
 .next {
 	text-align: right;
+}
+
+/* ------------------------------------
+* Footnotes
+* ---------------------------------- */
+.footnotes {
+	font-size: .9em;
+	color: #555;
+	&>ol,&>ul {
+		padding-inline: 20px;
+	}
+	p {
+		margin-block: 10px;
+	}
 }

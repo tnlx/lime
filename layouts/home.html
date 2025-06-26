@@ -8,16 +8,16 @@
 
 	{{ range .RegularPagesRecursive }}
 	<li class=card>
-		<div>
-			<a class="cardtitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
-			<div class="carddesc">
-				{{ if gt .WordCount 50 }}{{/*Extract the first paragraph*/}}
-				<p>{{ ( index (split .RawContent "\n\n" ) 0 ) | markdownify | truncate 200 }}</p>
-				<a class=more href="{{ .RelPermalink }}">More</a>
-				{{ else }}{{/* Display complete contents for short pages*/}}
-				{{ .Content }}
-				{{ end }}
-			</div>
+		<div class="heading">
+			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		</div>
+		<div class="carddesc">
+			{{ if gt .WordCount 30 }}{{/*Extract the first paragraph*/}}
+			<p>{{ ( index (split .RawContent "\n\n" ) 0 ) | markdownify | truncate 200 }}</p>
+			<a class=more href="{{ .RelPermalink }}">More</a>
+			{{ else }}{{/* Display complete contents for short pages*/}}
+			{{ .Content }}
+			{{ end }}
 		</div>
 	</li>
 	{{ end }}
