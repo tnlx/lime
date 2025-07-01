@@ -26,7 +26,9 @@
 
 {{ define "profile" }}
 <div class="carddesc">
-	<img src="{{- .Picture -}}" width="80px">
+	{{ with .Picture}}
+	<img src="{{ . }}" width="80" title="Photo of myself" alt="The profile picture">
+	{{ end }}
 	<p>{{- .Intro | markdownify -}}</p>
 </div>
 <div class="carddesc">

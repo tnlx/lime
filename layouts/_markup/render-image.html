@@ -1,9 +1,21 @@
-{{ $url := "" }}
 {{ with .Page.Resources.GetMatch .Destination }}
-{{/*Normalize internal URL*/}}
-{{/*This helps render page bundle's images on section index */}}
-{{ $url = .RelPermalink }}
+{{ $image := .Process "webp" }}
+<figure>
+    <img src="{{ $image.RelPermalink | safeURL }}" 
+    {{ with $.Text }} alt="{{ . }}" {{ end }}
+    />
+    {{ with $.Title}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+    {{ end }}
+</figure>
 {{ else }}
-{{ $url = .Destination | safeURL }}
+{{/*Remote image*/}}
+<figure>
+    <img src="{{ .Destination | safeURL }}" 
+    {{ with $.Text }} alt="{{ . }}" {{ end }}
+    />
+    {{ with $.Title}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+    {{ end }}
+</figure>
 {{ end }}
-<img src="{{- $url -}}" alt="{{- .Text -}}" {{ with .Title }}title="{{- . -}}"{{ end }}/>

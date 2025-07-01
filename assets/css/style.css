@@ -45,6 +45,7 @@ html {
 }
 
 body {
+	background: #fafafa;
 	color: var(--pen-regular);
 	padding-top: 20px;
 	width: fit-content;
@@ -74,9 +75,7 @@ footer {
 /* ------------------------------------
 * Within main
 * ---------------------------------- */
-body {
-	background: #fafafa;
-}
+
 .articleheading>.heading {
 	font-weight: bold;
 	font-size: 4rem;
@@ -88,6 +87,7 @@ body {
 .content {
 	line-height: 1.6;
 	background: white;
+	max-width: 540px;
 }
 @media only screen and (min-width: 780px) {
 	.content {
@@ -180,10 +180,13 @@ h2,h3,h4,h5,h6 {
 .carddesc p {
 	margin-block: 0 .3em;
 }
-.carddesc img {
+.carddesc img,.carddesc figure {
 	float: left;
 	max-width: 100px;
-	margin-right: 12px;
+	margin: 0 10px 0 0;
+}
+.carddesc figcaption {
+	display: none;
 }
 .card.profile {
 	border-style: solid;
@@ -212,6 +215,18 @@ h2,h3,h4,h5,h6 {
 .homeref {
 	text-decoration: none;
 }
+figure {
+	padding: 0;
+	margin: 10px 0;
+}
+figcaption {
+	font-style: italic;
+	color: #555;
+	font-size: .9em;
+}
+img {
+	max-width: 100%;
+}
 em {
 	background-color: var(--marker-orange);
 	color: black;
@@ -221,9 +236,6 @@ hr {
 	margin-block: 2rem;
 	height:1px;
 	border: none;
-}
-img {
-	max-width: 100%;
 }
 h2 {
 	margin-block: 2em .67em;
