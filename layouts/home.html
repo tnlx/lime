@@ -39,7 +39,7 @@
 	</ul>
 	<ul class="contacts">
 		{{- range .socials -}}
-		<li class="contact"><a class="icon" href="https://{{- .url -}}" rel="me">
+		<li class="contact"><a class="icon" aria-label="{{ .label }}" href="https://{{- .url -}}" rel="me">
 		{{ $icon := ( printf "icons/%s.svg" ( .label | lower ) ) }}
 		{{ with resources.Get $icon }}
 		{{ .Content | safeHTML }}
