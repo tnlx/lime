@@ -6,6 +6,9 @@
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<title>{{ .Site.Title }}</title>
 	{{ block "style" . }} {{ end }}
+	{{- with .Description -}}
+	<meta name="description" content="{{- . -}}">
+	{{- end -}}
 </head>
 <body>
 	<header>{{ block "header" . }} {{ end }}</header>
