@@ -41,22 +41,24 @@
 	box-sizing: border-box;
 }
 html {
-	scroll-padding-top: 50px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 
 body {
 	color: var(--pen-regular);
 	padding-top: 20px;
-	width: fit-content;
-	margin: auto;
-	max-width: 90vw;
-}
-
-main {
-	margin-block: 40px;
-}
-.cardboard {
-	max-width: 780px;
+	border: 8px solid var(--marker-orange);
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	place-items: center;
+	justify-content: space-between;
 }
 
 /* ------------------------------------
@@ -69,7 +71,6 @@ main {
 
 footer {
 	font-size: .9em;
-	margin-bottom: 20px;
 }
 footer a {
 	text-decoration: none;
@@ -93,7 +94,10 @@ footer>ul>li {
 /* ------------------------------------
 * Within main
 * ---------------------------------- */
-
+.article {
+	margin-block: 40px;
+	margin-inline: 20px;
+}
 .articleheading>.heading {
 	font-weight: bold;
 	font-size: 4rem;
@@ -110,8 +114,6 @@ footer>ul>li {
 @media only screen and (min-width: 780px) {
 	.content {
 		max-width: 540px;
-		padding: 4px 20px;
-		outline: 1px dotted #555;
 	}
 	.article {
 		max-width: 800px;
@@ -135,7 +137,9 @@ footer>ul>li {
 		top: 20px;
 	}
 }
-
+.toc {
+	color: #6a6a6a;
+}
 .toc .heading{
 	font-size: unset;
 	margin-block: .67em;
@@ -160,12 +164,16 @@ h2,h3,h4,h5,h6 {
 
 /* Cardboard (Home/Section navigation) */
 .cardboard {
+	max-width: 780px;
 	list-style: none;
 	padding-inline: 0;
 	display: grid;
+	gap: 12px;
 	grid-template-columns: auto;
-	gap: 8px;
 	@media only screen and (min-width: 375px) {
+		grid-template-columns: repeat(1,1fr);
+	}
+	@media only screen and (min-width: 540px) {
 		grid-template-columns: repeat(2,1fr);
 	}
 	@media only screen and (min-width:700px) {
@@ -173,28 +181,25 @@ h2,h3,h4,h5,h6 {
 	}
 }
 .card {
-	border: 1px dotted #555;
+	/*border: 4px solid var(--marker-green);*/
 	background: white;
 	padding: 12px;
-	min-height: 150px;
-	min-width: 200px;
+	min-height: 120px;
 }
 .card a {
-	text-decoration: none;
 	font-weight: 600;
-	color: inherit;
+	color: var(--pen-blue);
+	text-decoration-color: var(--marker-orange);
 }
 .card .heading {
 	margin: 0 0 4px;
 	font-size: 1.3em;
 	line-height: 1.1;
 	font-weight: bold;
-	text-decoration: none;
 }
 .carddesc {
 	font-size: .9em;
 	color: #555;
-	line-height: 1.2;
 }
 .carddesc p {
 	margin-block: 0 .3em;
@@ -208,7 +213,6 @@ h2,h3,h4,h5,h6 {
 	display: none;
 }
 .card.profile {
-	border-style: solid;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -266,6 +270,7 @@ a {
 	text-underline-offset: 2px;
 	text-decoration-thickness: 2px;
 	text-decoration-skip-ink: none;
+	text-decoration-color: var(--marker-orange);
 }
 a:focus,a:hover,a:active {
 	color: black;
@@ -323,7 +328,7 @@ p>code {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 20px 0 0 0;
+	margin: 80px 0 0 0;
 	font-size: .9em;
 	gap: 1em;
 }

@@ -5,15 +5,18 @@
 		{{ block "profile" . }} {{ end }}
 	</li>
 	{{ end }}
-
-	{{ range .RegularPagesRecursive }}
+	{{ $footerUrls := slice }}
+	{{ range site.Params.footerLinks }}
+	{{ $footerUrls = $footerUrls | append  .url }}
+	{{ end }}
+	{{ range ( where .RegularPagesRecursive "RelPermalink" "not in" $footerUrls ) }}
 	<li class=card>
 		<div class="heading">
 			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 		</div>
 		<div class="carddesc">
 			{{ if gt .WordCount 30 }}{{/*Extract the first paragraph*/}}
-			<p>{{ ( index (split .RawContent "\n\n" ) 0 ) | markdownify | truncate 200 }}</p>
+			<p>{{ ( index (split .RawContent "\n\n" ) 0 ) | markdownify | truncate 150 }}</p>
 			<a class=more href="{{ .RelPermalink }}">More</a>
 			{{ else }}{{/* Display complete contents for short pages*/}}
 			{{ .Content }}
