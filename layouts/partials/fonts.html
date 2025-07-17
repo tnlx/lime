@@ -1,19 +1,28 @@
-{{/*Establish early connection(s) with the third-party origin*/}}
-{{/*for faster resources deliveries*/}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <style>
-body {
-	font-family: 'Cantarell', sans-serif;
-	word-spacing: 1px;
-	letter-spacing: -.7px;
-}
-.heading,h1,h2,h3,h4,h5,h6 {
-	font-family: 'Poppins', sans-serif;
-}
-code {
-	font-family: 'Adwaita Mono', monospace;
-	font-size: .8em;
-}
+	@font-face {
+		font-family: Vollkorn;
+		font-style: normal;
+		font-weight: normal;
+		font-stretch: normal;
+		src: url('/fonts/Vollkorn-VariableFont_wght.woff2') format('woff2');
+	}
+	@font-face {
+		font-family: Vollkorn;
+		font-style: italic;
+		font-weight: normal;
+		font-stretch: normal;
+		src: url(/fonts/Vollkorn-Italic-VariableFont_wght.woff2') format('woff2');
+	}
+
+	body {
+		font-family: 'Vollkorn', serif;
+		font-size: 1.12em;
+		word-spacing: 1.5px;
+		letter-spacing: -.2px;
+	}
+	code {
+		font-size: .9em;
+		word-spacing: normal;
+		letter-spacing: normal;
+	}
 </style>

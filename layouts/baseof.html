@@ -21,7 +21,13 @@
 {{ end }}
 
 {{ define "footer" }}
-<div>{{ .Site.Copyright }} | <a class=homeref href="/">{{ site.Params.home }}</a></div>
+<ul>
+	<li>{{ .Site.Copyright }}</li>
+	<li><a class=homeref href="/">{{ site.Params.home }}</a></li>
+	{{ range site.Params.footerLinks }}
+	<li><a href="{{ .url }}">{{ .label }}</a></li>
+	{{ end }}
+</ul>
 {{ end }}
 
 {{ define "main" }}

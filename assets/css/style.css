@@ -6,7 +6,7 @@
 @property --pen-regular {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(42,42,42);
+  initial-value: rgb(72,72,72);
 }
 @property --marker-green {
   syntax: "<color>";
@@ -31,7 +31,7 @@
 @property --pen-blue {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(15, 0, 208);
+  initial-value: rgb(32, 103, 155);
 }
 
 /* ------------------------------------
@@ -45,11 +45,11 @@ html {
 }
 
 body {
-	background: #fafafa;
 	color: var(--pen-regular);
 	padding-top: 20px;
 	width: fit-content;
 	margin: auto;
+	max-width: 90vw;
 }
 
 main {
@@ -70,6 +70,24 @@ main {
 footer {
 	font-size: .9em;
 	margin-bottom: 20px;
+}
+footer a {
+	text-decoration: none;
+}
+footer>ul{
+	list-style-type: none;
+	margin-inline: 0;
+	padding-inline: 0;
+}
+footer>ul>li {
+	display: inline;
+	&:before {
+		content: '|';
+		margin: 0 4px;
+	}
+	&:first-child:before{
+		content: none;
+	}
 }
 
 /* ------------------------------------
@@ -148,7 +166,7 @@ h2,h3,h4,h5,h6 {
 	grid-template-columns: auto;
 	gap: 8px;
 	@media only screen and (min-width: 375px) {
-		grid-template-columns: repeat(2,auto);
+		grid-template-columns: repeat(2,1fr);
 	}
 	@media only screen and (min-width:700px) {
 		grid-template-columns: repeat(3,1fr);
@@ -159,6 +177,7 @@ h2,h3,h4,h5,h6 {
 	background: white;
 	padding: 12px;
 	min-height: 150px;
+	min-width: 200px;
 }
 .card a {
 	text-decoration: none;
@@ -183,7 +202,7 @@ h2,h3,h4,h5,h6 {
 .carddesc img,.carddesc figure {
 	float: left;
 	max-width: 100px;
-	margin: 0 10px 0 0;
+	margin: 0 10px 10px 0;
 }
 .carddesc figcaption {
 	display: none;
@@ -212,9 +231,7 @@ h2,h3,h4,h5,h6 {
 /* ------------------------------------
 * General elements
 * ---------------------------------- */
-.homeref {
-	text-decoration: none;
-}
+
 figure {
 	padding: 0;
 	margin: 10px 0;
@@ -270,6 +287,7 @@ pre {
 	overflow: auto;
 	background: #eee;
 	width: 100%;
+	line-height: initial;
 }
 code {
 	color: black;
@@ -336,4 +354,47 @@ p>code {
 	p {
 		margin-block: 10px;
 	}
+}
+
+/* ------------------------------------
+* details
+* ---------------------------------- */
+details {
+	margin-block: .67em;
+	>p,>div {
+		margin: .67em 1em;
+	}
+	figure {
+		float: left;
+		margin-right: 20px;
+		img {
+			max-height: 100px;
+		}
+	}
+	summary {
+		font-weight: 700;
+	}
+}
+
+/* ------------------------------------
+* blockquote
+* ---------------------------------- */
+blockquote {
+	font-style: italic;
+	text-align: justify;
+	margin-block: 0 0.67em;
+}
+blockquote p::before {
+  content: "\201C";
+}
+blockquote p::after {
+  content: "\201D";
+}
+blockquote p:last-child {
+	margin-block-end: 0;
+}
+blockquote + p {
+  text-align: right;
+  margin-right: 20px;
+  margin-block: 0;
 }
