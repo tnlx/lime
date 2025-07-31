@@ -48,14 +48,7 @@
 {{ end }}
 
 {{ define "style" }}
-{{ partial "fonts.html" . }}
-{{ with ( resources.Get "css/style.css" ) }}
-{{ if hugo.IsDevelopment }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{ else }}
-{{ with . | minify | fingerprint }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{ end }}
-{{ end }}
-{{ end }}
+{{ partialCached "fonts.html" . }}
+{{ partialCached "css.html" "css/style.css" "style" }}
+{{ partialCached "css.html" ( printf "css/%s.css" .Kind ) .Kind }}
 {{ end }}

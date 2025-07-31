@@ -1,0 +1,67 @@
+/* Cardboard (Home/Section navigation) */
+.cardboard {
+	max-width: 780px;
+	list-style: none;
+	padding-inline: 0;
+	display: grid;
+	gap: 12px;
+	grid-template-columns: auto;
+	@media only screen and (min-width: 375px) {
+		grid-template-columns: repeat(1,1fr);
+	}
+	@media only screen and (min-width: 540px) {
+		grid-template-columns: repeat(2,1fr);
+	}
+	@media only screen and (min-width:700px) {
+		grid-template-columns: repeat(3,1fr);
+	}
+}
+.card {
+	background: white;
+	padding: 12px;
+	min-height: 120px;
+}
+.card a {
+	font-weight: 600;
+}
+.card .heading {
+	margin: 0 0 4px;
+	font-size: 1.3em;
+	line-height: 1.1;
+	font-weight: bold;
+}
+.carddesc {
+	font-size: .9em;
+	color: #555;
+}
+.carddesc p {
+	margin-block: 0 .3em;
+}
+.carddesc img,.carddesc figure {
+	float: left;
+	max-width: 100px;
+	margin: 0 10px 10px 0;
+}
+.carddesc figcaption {
+	display: none;
+}
+.card.profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.contacts {
+	list-style: none;
+	padding-inline: 0;
+	flex-wrap: wrap;
+	font-size: .9em;
+	margin-top: 8px;
+}
+.contact {
+	display:inline;
+	margin-right: 4px;
+}
+.more:after {
+	content: '\00BB';
+	margin-left: 4px;
+}
