@@ -40,7 +40,7 @@
 .carddesc img,.carddesc figure {
 	float: left;
 	max-width: 100px;
-	margin: 0 10px 10px 0;
+	margin: 0 10px 5px 0;
 }
 .carddesc figcaption {
 	display: none;
@@ -54,12 +54,13 @@
 	list-style: none;
 	padding-inline: 0;
 	flex-wrap: wrap;
-	font-size: .9em;
-	margin-top: 8px;
 }
 .contact {
 	display:inline;
 	margin-right: 4px;
+}
+.more {
+	text-decoration: none;
 }
 .more:after {
 	content: '\00BB';

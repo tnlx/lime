@@ -11,6 +11,13 @@
 	{{ end }}
 	{{ range ( where .RegularPagesRecursive "RelPermalink" "not in" $footerUrls ) }}
 	<li class=card>
+		<div class="carddesc">
+			<ul class=categories>
+				{{ range .Params.Categories }}
+				<li>{{ ( or (i18n .) (title .) ) }}</li>
+				{{ end }}
+			</ul>
+		</div>
 		<div class="heading">
 			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 		</div>
@@ -37,10 +44,11 @@
 <div class="carddesc">
 	<ul class="contacts">
 		{{- range .inbox -}}
-		<li class="contact"><a href="{{- .url -}}">{{- .label -}}</a></li>
+		<li class="contact"><a class=more href="{{- .url -}}">{{- .label -}}</a></li>
 		{{- end -}}
 	</ul>
-	<ul class="contacts">
+	<p>Or find me on</p>
+	<ul class="contacts" style='display:inline'>
 		{{- range .socials -}}
 		<li class="contact"><a class="icon" aria-label="{{ .label }}" href="https://{{- .url -}}" rel="me">
 		{{ $icon := ( printf "icons/%s.svg" ( .label | lower ) ) }}

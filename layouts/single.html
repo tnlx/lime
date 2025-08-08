@@ -3,13 +3,13 @@
 	<div class=prev>
 		{{ with .PrevInSection }}
 		<p class=prevnextlabel>Previous</p>
-		<a href="{{.Permalink}}">{{.Title}}</a>
+		<a href="{{.RelPermalink}}">{{.Title}}</a>
 		{{ end }}
 	</div>
 	<div class=next>
 		{{ with .NextInSection }}
 		<p class=prevnextlabel>Next</p>
-		<a href="{{.Permalink}}">{{.Title}}</a>
+		<a href="{{.RelPermalink}}">{{.Title}}</a>
 		{{ end }}
 	</div>
 </aside>
