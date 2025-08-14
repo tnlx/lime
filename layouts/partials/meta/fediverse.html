@@ -1,0 +1,3 @@
+{{ with ( or .Params.fediverse.creator site.Params.fediverseCreator ) }}
+<meta name="fediverse:creator" content="{{- . -}}" />
+{{ end }}
