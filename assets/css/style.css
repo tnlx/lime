@@ -6,7 +6,17 @@
 @property --pen-regular {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(72,72,72);
+  initial-value: rgb(68, 68, 68);
+}
+@property --pen-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(32, 103, 155);
+}
+@property --pen-grey {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(92,92,92);
 }
 @property --marker-green {
   syntax: "<color>";
@@ -27,11 +37,6 @@
   syntax: "<color>";
   inherits: true;
   initial-value: rgb(99, 204, 255);
-}
-@property --pen-blue {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgb(32, 103, 155);
 }
 
 /* ------------------------------------
@@ -120,7 +125,7 @@ figure {
 }
 figcaption {
 	font-style: italic;
-	color: #555;
+	color: var(--pen-grey);
 	font-size: .9em;
 }
 img {
@@ -204,7 +209,7 @@ p>code {
 * ---------------------------------- */
 .footnotes {
 	font-size: .9em;
-	color: #555;
+	color: var(--pen-grey);
 	&>ol,&>ul {
 		padding-inline: 20px;
 	}
