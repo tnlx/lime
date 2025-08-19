@@ -6,7 +6,7 @@
 @property --pen-regular {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(68, 68, 68);
+  initial-value: rgb(54, 54, 54);
 }
 @property --pen-blue {
   syntax: "<color>";
@@ -16,7 +16,7 @@
 @property --pen-grey {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(92,92,92);
+  initial-value: rgb(74,74,74);
 }
 @property --marker-green {
   syntax: "<color>";
@@ -130,10 +130,6 @@ figcaption {
 }
 img {
 	max-width: 100%;
-}
-em {
-	background-color: var(--marker-orange);
-	color: black;
 }
 hr {
 	background:#eee;

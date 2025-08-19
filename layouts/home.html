@@ -36,17 +36,19 @@
 
 {{ define "profile" }}
 <div class="carddesc">
-	{{ with .Picture}}
-	<img src="{{ . }}" width="80" title="Photo of myself" alt="The profile picture">
-	{{ end }}
 	<p>{{- .Intro | markdownify -}}</p>
+	{{ range .Pictures}}
+	<img src="{{ . }}" width="80" height="80">
+	{{ end }}
 </div>
 <div class="carddesc">
+	{{ with .Inbox }}
 	<ul class="contacts">
-		{{- range .inbox -}}
-		<li class="contact"><a class=more href="{{- .url -}}">{{- .label -}}</a></li>
+		{{- range . -}}
+		<li class="contact"><a class="more" href="{{- .url -}}">{{ .label }}</a></li>
 		{{- end -}}
 	</ul>
+	{{ end }}
 	<p>Or find me on</p>
 	<ul class="contacts" style='display:inline'>
 		{{- range .socials -}}
