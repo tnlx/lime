@@ -1,0 +1,6 @@
+{{/* [...]<p>EXCERPT</p> */}}
+{{ $i := split ( index (split .Content "</p>" ) 0 ) "<p>" }}
+<p>
+{{- if gt ( len ( index $i 0 ) ) 0 -}}<span>[...] </span>{{ end }}
+{{- ( index $i 1 ) | safeHTML -}}
+</p>

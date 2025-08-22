@@ -23,8 +23,8 @@
 		</div>
 		<div class="carddesc">
 			{{ if gt .WordCount 30 }}{{/*Extract the first paragraph*/}}
-			<p>{{ ( index (split .RawContent "\n\n" ) 0 ) | markdownify | truncate 150 }}</p>
-			<a class=more href="{{ .RelPermalink }}">More</a>
+			{{ partial "excerpt.html" . }}
+			<a class=more href="{{ .RelPermalink }}">Read</a>
 			{{ else }}{{/* Display complete contents for short pages*/}}
 			{{ .Content }}
 			{{ end }}
@@ -36,30 +36,33 @@
 
 {{ define "profile" }}
 <div class="carddesc">
-	<p>{{- .Intro | markdownify -}}</p>
-	{{ range .Pictures}}
-	<img src="{{ . }}" width="80" height="80">
-	{{ end }}
+	<div style="float:right;max-width:200px;text-align: right;margin:0 20px 0 0">
+		{{- .Intro | markdownify -}}
+	</div>
+	<div class="inbox" style="float:left">
+	<a class="icon" aria-label="mailbox" href="{{ .InboxURL }}">
+		{{- with resources.Get "svg/mailbox.svg" -}}
+		{{ .Content | safeHTML }}
+		{{ end }}
+		{{- with resources.Get "svg/inbox-balloon.svg" -}}
+		{{ .Content | safeHTML }}
+		{{ end }}
+</a>
+	</div>
 </div>
 <div class="carddesc">
-	{{ with .Inbox }}
-	<ul class="contacts">
-		{{- range . -}}
-		<li class="contact"><a class="more" href="{{- .url -}}">{{ .label }}</a></li>
-		{{- end -}}
-	</ul>
-	{{ end }}
-	<p>Or find me on</p>
+	<p><em>or find me on</em></p>
 	<ul class="contacts" style='display:inline'>
 		{{- range .socials -}}
-		<li class="contact"><a class="icon" aria-label="{{ .label }}" href="https://{{- .url -}}" rel="me">
-		{{ $icon := ( printf "icons/%s.svg" ( .label | lower ) ) }}
-		{{ with resources.Get $icon }}
-		{{ .Content | safeHTML }}
-		{{ else }}
-		{{- .label -}}
-		{{ end }}
-		</a></li>
+		<li class="contact">
+			<a class="icon" aria-label="{{ .label }}" href="https://{{- .url -}}" rel="me">
+				{{ $icon := ( printf "svg/%s.svg" ( .label | lower ) ) }}
+				{{- with resources.Get $icon -}}
+				{{ .Content | safeHTML }}
+				{{ else }}
+				{{- .label -}}
+				{{ end }}</a>
+		</li>
 		{{- end -}}
 	</ul>
 </div>

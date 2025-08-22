@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{{ block "meta" . }} {{ end }}
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/svg" href="favicon.svg">
+	<link rel="apple-touch-icon" sizes="256x256"  href="apple-touch-icon_256x256.png">
 	<title>{{ .Site.Title }}</title>
 	{{ block "style" . }} {{ end }}
 	{{- with .Description -}}
@@ -23,11 +24,14 @@
 
 {{ define "footer" }}
 <ul>
-	<li>{{ .Site.Copyright }}</li>
-	<li><a class=homeref href="/">{{ site.Params.home }}</a></li>
-	{{ range site.Params.footerLinks }}
-	<li><a href="{{ .url }}">{{ .label }} {{ with .icon }} {{ . | safeHTML }} {{ end }}</a></li>
-	{{ end }}
+	<li>{{- .Site.Copyright -}}</li>{{- /**/ -}}
+	<li><a class=homeref href="/">{{- site.Params.home -}}</a></li>
+	{{- range site.Params.footerLinks -}}
+	<li><a href="{{ .url }}">
+		{{- .label -}}
+		<div style='display: inline;margin-left:4px'>{{- with .icon -}} {{- . | safeHTML -}} {{- end }}</div>
+	</a></li>
+	{{- end -}}
 	</li>
 </ul>
 {{ end }}
