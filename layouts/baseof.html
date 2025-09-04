@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{{ block "meta" . }} {{ end }}
-	<link rel="icon" type="image/svg" href="favicon.svg">
-	<link rel="apple-touch-icon" sizes="256x256"  href="apple-touch-icon_256x256.png">
+	<link rel="icon" type="image/svg" href="/favicon.svg">
+	<link rel="apple-touch-icon" sizes="256x256"  href="/apple-touch-icon_256x256.png">
 	<title>{{ .Site.Title }}</title>
 	{{ block "style" . }} {{ end }}
 	{{- with .Description -}}
@@ -34,23 +34,6 @@
 	{{- end -}}
 	</li>
 </ul>
-{{ end }}
-
-{{ define "main" }}
-<article class="article">
-<div class="articleheading">
-<h1 class="heading">{{ .Title }}</h1>
-</div>
-<aside class="articleside">
-	<div class="sticky">
-	{{ block "toc" . }} {{ end }}
-	</div>
-</aside>
-<div class="content">
-{{ .Content }}
-</div>
-{{ block "pagenav" . }} {{ end }}
-</article>
 {{ end }}
 
 {{ define "style" }}

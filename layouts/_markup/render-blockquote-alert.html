@@ -1,10 +1,8 @@
 <div class="callout">
+  {{ with ( or .AlertTitle ( i18n .AlertType ) )}}
   <p class="callout-heading">
-    {{ with .AlertTitle }}
     {{ . }}
-    {{ else }}
-    {{ ( or (i18n .AlertType) (title .AlertType) ) }}
-    {{ end }}
   </p>
+  {{ end }}
   {{ .Text }}
 </div>

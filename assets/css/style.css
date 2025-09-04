@@ -6,7 +6,7 @@
 @property --pen-regular {
   syntax: "<color>";
   inherits: true;
-  initial-value: rgb(54, 54, 54);
+  initial-value: rgb(68, 68, 68);
 }
 @property --pen-blue {
   syntax: "<color>";
@@ -121,9 +121,7 @@ main {
 h2,h3,h4,h5,h6 {
 	font-weight: 600;
 }
-p,ul,ol{
-	line-height: 1.5;
-}
+
 /* ------------------------------------
 * General elements
 * ---------------------------------- */
@@ -176,37 +174,36 @@ a.icon {
 }
 /* Codeblock */
 pre {
-	padding: 12px;
+	margin: 0 -1em;
+	padding: 1em;
+	border-radius: 8px;
 	overflow: auto;
-	background: #eee;
-	width: 100%;
 	line-height: initial;
-}
-code {
-	color: black;
+	border: 2px dotted var(--marker-blue);
 }
 p>code {
-	background-color: #f7f7f7;
+	border: 1px dotted var(--marker-blue);
+	padding: .1em;
+	border-radius: 2px;
 }
 
 /* ------------------------------------
 * callouts
 * ---------------------------------- */
 .callout {
-	padding: 1em;
+	padding: 1.5em;
+	margin: 1em -1em;
 	font-size: .9em;
-	background: #f5f5f5;
+	border: 2px dotted var(--marker-orange);
+	border-radius: 8px;
 }
 .callout>ul{
 	padding-inline: 20px;
 	margin-block: 0;
 }
-.callout>p {
-	margin-block: 0;
-}
 .callout-heading {
-	margin-block: 0;
 	font-weight: bold;
+	margin-block: 0 .67em;
 }
 
 /* ------------------------------------
@@ -263,6 +260,7 @@ blockquote p:last-child {
 blockquote + p {
   text-align: right;
   margin-right: 20px;
+  margin-left: 10%;
   margin-block: 0;
 }
 

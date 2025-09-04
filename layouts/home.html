@@ -12,22 +12,13 @@
 	{{ range ( where .RegularPagesRecursive "RelPermalink" "not in" $footerUrls ) }}
 	<li class=card>
 		<div class="carddesc">
-			<ul class=categories>
-				{{ range .Params.Categories }}
-				<li>{{ ( or (i18n .) (title .) ) }}</li>
-				{{ end }}
-			</ul>
+			<date>{{ .Date | time.Format "Jan 2006" }}</date>
 		</div>
 		<div class="heading">
 			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 		</div>
-		<div class="carddesc">
-			{{ if gt .WordCount 30 }}{{/*Extract the first paragraph*/}}
-			{{ partial "excerpt.html" . }}
-			<a class=more href="{{ .RelPermalink }}">Read</a>
-			{{ else }}{{/* Display complete contents for short pages*/}}
-			{{ .Content }}
-			{{ end }}
+		<div class="carddesc" style='font-style:italic;'>
+			{{ with .Description }}{{ . }}{{ end }}
 		</div>
 	</li>
 	{{ end }}

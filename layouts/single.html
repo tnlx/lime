@@ -21,8 +21,8 @@
 {{ with .TableOfContents }}
 {{ if ne . $noToc }}
 <div class="toc">
-    <h2 class="heading">Table of Contents</h2>
-    {{ . }}
+	<h2 class="heading">Table of Contents</h2>
+	{{ . }}
 </div>
 {{ end }}
 {{ end }}
@@ -30,4 +30,21 @@
 
 {{ define "meta" }}
 {{ partial "meta/fediverse.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<article class="article">
+	<div class="articleheading">
+		<h1 class="heading">{{ .Title }}</h1>
+	</div>
+	<aside class="articleside">
+		<div class="sticky">
+			{{ block "toc" . }} {{ end }}
+		</div>
+	</aside>
+	<div class="content">
+		{{ .Content }}
+	</div>
+	{{ block "pagenav" . }} {{ end }}
+</article>
 {{ end }}
