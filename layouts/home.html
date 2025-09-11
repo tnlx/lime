@@ -28,7 +28,8 @@
 {{ define "profile" }}
 <div class="carddesc">
 	<div style="float:right;max-width:200px;text-align: right;margin:0 20px 0 0">
-		{{- .Intro | markdownify -}}
+		<h1 class="heading">{{ .Title }}</h1>
+		<div>{{ .Description | markdownify }}</div>
 	</div>
 	<div class="inbox" style="float:left">
 	<a class="icon" aria-label="mailbox" href="{{ .InboxURL }}">

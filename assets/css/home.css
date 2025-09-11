@@ -1,11 +1,8 @@
-/* Cardboard (Home/Section navigation) */
 .cardboard {
-	max-width: 960px;
 	list-style: none;
 	padding-inline: 0;
 	display: grid;
 	gap: 32px;
-	grid-template-columns: auto;
 	@media only screen and (min-width: 375px) {
 		grid-template-columns: repeat(1,1fr);
 		margin: 20px;
@@ -20,58 +17,51 @@
 	}
 }
 .card {
+	font-size: .9em;
 	background: white;
 	padding: 12px;
-	min-height: 120px;
 	@media only screen and (min-width:540px) {
 		max-width: 270px;
 	}
-}
-.card a {
-	font-weight: 600;
-	text-decoration-line: none;
-}
-.card .heading {
-	margin: 0 0 4px;
-	font-size: 1.3em;
-	line-height: 1.1;
-	font-weight: bold;
-}
-.carddesc {
-	font-size: .9em;
-	color: var(--pen-grey);
-}
-.carddesc p {
-	margin-block: 0 .3em;
-}
-.carddesc img,.carddesc figure {
-	float: left;
-	max-width: 100px;
-	margin: 0 10px 5px 0;
-}
-.carddesc figcaption {
-	display: none;
-}
-.card.profile {
-	display: flex;
-	flex-direction: column;
-	h1 {
-		font-size: 1.5em;
-		margin-block: 0;
+	.heading {
+		margin: 0 0 4px;
+		font-size: 1.3em;
+		line-height: 1.1;
+		font-weight: bold;
+		a {
+			font-weight: 600;
+			text-decoration-line: none;
+		}
+	}
+	p {
+		margin-block: 0 .2em;
 	}
 }
-.contacts {
-	list-style: none;
-	padding-inline: 0;
+.profile {
+	grid-row: 1 / span 2;
+	display: flex;
+	flex-direction: column;
+	.contacts {
+		list-style: none;
+		padding-inline: 0;
+	}
+	.contact {
+		display:inline;
+		margin-right: 4px;
+	}
+	.inbox {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: end;
+	}
+	#mailbox {
+		height: 60px;
+		&:hover{ 
+			cursor: pointer;
+		}
+	}
 }
-.contact {
-	display:inline;
-	margin-right: 4px;
-}
-.more {
-	text-decoration: none;
-}
-.more:after {
-	content: '\00BB';
-	margin-left: 4px;
+.carddesc {
+	color: var(--pen-grey);
 }
